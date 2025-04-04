@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const isDevMode = process.env['NODE_ENV'] === 'development';
+const siteUrl = 'https://dfmud.xyz';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,6 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // set metadataBase url when we are not development mode
+  // @see https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+  metadataBase: !isDevMode ? new URL(siteUrl) : undefined,
   title: "Dark Forest Mud — A Decentralized Journey to Conquer the Cosmos",
   description: "A real‑time strategy game built on EVM using zkSNARKs technology. Explore an infinite procedurally generated universe.",
   keywords: ["Dark Forest", "Ethereum", "zkSNARKs", "Web3 Game", "Blockchain Game", "Strategy Game"],
@@ -24,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dark Forest Mud — A Decentralized Journey to Conquer the Cosmos",
     description: "A real‑time strategy game built on EVM using zkSNARKs technology",
-    url: "https://darkforest.mud",
+    url: siteUrl,
     siteName: "Dark Forest Mud",
     images: [
       {
