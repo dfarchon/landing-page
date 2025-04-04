@@ -141,6 +141,8 @@ const Navbar = () => {
             <Link 
               href="https://dfares.notion.site/DFArchon-One-Pager-TBD-1a7a4dc234338049903fc2568e5ec4fc" 
               className="text-white py-2 px-4 rounded hover:bg-primary/20"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               GuildBook
