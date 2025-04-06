@@ -32,20 +32,6 @@ const SupporterLogo = ({ name, logo, link, delay }: SupporterLogoProps) => {
   );
 };
 
-const SocialLink = ({ icon, label, href }: { icon: React.ReactNode; label: string; href: string }) => {
-  return (
-    <Link
-      href={href}
-      className="flex items-center gap-3 py-3 px-6 bg-card-bg rounded-lg hover:bg-primary/20 transition-colors text-white border border-primary/10"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className="text-accent-light">{icon}</div>
-      <span>{label}</span>
-    </Link>
-  );
-};
-
 const Support = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
 import GameOverview from '@/components/sections/GameOverview';
@@ -12,8 +12,7 @@ import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
-  const sections = ['hero', 'overview', 'roadmap', 'faq', 'support', 'footer'];
-
+  const sections = useMemo(() => ['hero', 'overview', 'roadmap', 'faq', 'support', 'footer'], []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

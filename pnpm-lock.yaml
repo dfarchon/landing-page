@@ -21,7 +21,7 @@ importers:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
       schema-dts:
-        specifier: 1.1.5
+        specifier: ^1.1.5
         version: 1.1.5
     devDependencies:
       '@eslint/eslintrc':

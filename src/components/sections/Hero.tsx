@@ -2,11 +2,12 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 // Add a global type declaration for our test function
 declare global {
   interface Window {
-    setCountdownTest: (seconds: number) => void;
+    setCountdownTest: ((seconds: number) => void) | null;
   }
 }
 
@@ -78,7 +79,7 @@ const Hero = () => {
       clearInterval(timer);
       // Also remove the test function when component unmounts
       if (typeof window !== 'undefined') {
-        window.setCountdownTest = undefined as any;
+        window.setCountdownTest = null;
       }
     };
   }, []);
@@ -274,7 +275,7 @@ const Hero = () => {
                 {countdownEnded ? (
                   <div className="flex items-center justify-center gap-2">
                     <span>Start Game</span>
-                    <img src="/base.png" alt="Base" width={24} height={24} />
+                    <Image src="/base.png" alt="Base" width={24} height={24} />
                   </div>
                 ) : 'Follow us on X'}
               </div>

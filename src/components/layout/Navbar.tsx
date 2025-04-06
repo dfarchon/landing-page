@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-interface NavbarProps {
-  scrollToTop?: () => void;
-}
 
-const Navbar = ({ scrollToTop }: NavbarProps) => {
+const isDevMode = process.env.NODE_ENV === 'development';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (isDevMode ? 'http://localhost:3000' : 'https://dfmud.xyz');
+
+
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -31,10 +32,9 @@ const Navbar = ({ scrollToTop }: NavbarProps) => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // 封装回到顶部功能
+
   const handleBackToTop = () => {
-    // 直接重定向到网站首页
-    window.location.href = 'https://dfmud.xyz';
+    window.location.href = siteUrl;
   };
 
   return (
@@ -63,7 +63,7 @@ const Navbar = ({ scrollToTop }: NavbarProps) => {
               priority
             />
           </motion.div>
-          <span 
+          <span
             className="text-xl font-bold text-white cursor-pointer"
           >DARK FOREST MUD</span>
         </Link>
