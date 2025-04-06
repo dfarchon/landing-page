@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { WebSite, WithContext } from "schema-dts";
 
 const isDevMode = process.env['NODE_ENV'] === 'development';
 const siteUrl = 'https://dfmud.xyz';
@@ -14,6 +15,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const siteUrl = "https://dfmud.xyz";
 
 export const metadata: Metadata = {
   // set metadataBase url when we are not development mode
@@ -51,6 +54,29 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData: WithContext<WebSite> = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Dark Forest Mud",
+  headline: "Dark Forest Mud — A Decentralized Journey to Conquer the Cosmos",
+  description: "A real‑time strategy game built on EVM using zkSNARKs technology",
+  url: siteUrl,
+  image: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/og-image.svg`,
+    width: "1200",
+    height: "630",
+    caption: "Dark Forest Game"
+  },
+  keywords: ["Dark Forest", "Ethereum", "zkSNARKs", "Web3 Game", "Blockchain Game", "Strategy Game"],
+  inLanguage: "en_US",
+  publisher: {
+    "@type": "Organization",
+    name: "Dark Forest Mud",
+    url: siteUrl,
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +85,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* 
+          Structured Data for SEO (Google Search Indexing)
+          @see https://nextjs.org/docs/app/building-your-application/optimizing/metadata#json-ld
+        */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData)
+        }} />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERTZ7ZEZTE"></script>
         <script
