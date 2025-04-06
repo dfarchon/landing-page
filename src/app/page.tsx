@@ -8,11 +8,11 @@ import Roadmap from '@/components/sections/Roadmap';
 import Support from '@/components/sections/Community';
 import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/layout/Footer';
-import GetStarted from '@/components/sections/GetStarted';
+// import GetStarted from '@/components/sections/GetStarted';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
-  const sections = ['hero', 'overview', 'getstarted', 'roadmap', 'faq', 'support', 'footer'];
+  const sections = ['hero', 'overview', 'roadmap', 'faq', 'support', 'footer'];
 
 
   useEffect(() => {
@@ -79,9 +79,9 @@ export default function Home() {
       <div id="overview" className="snap-start min-h-screen section-transition">
         <GameOverview />
       </div>
-      <div id="getstarted" className="snap-start min-h-screen section-transition">
+      {/* <div id="getstarted" className="snap-start min-h-screen section-transition">
         <GetStarted />
-      </div>
+      </div> */}
       <div id="roadmap" className="snap-start min-h-screen section-transition">
         <Roadmap />
       </div>

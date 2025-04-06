@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="relative pt-24 pb-10 bg-dark-blue/80">
       {/* Top decoration */}
       <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20"></div>
-      
+
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16">
           <div className="md:col-span-2">
@@ -20,19 +20,19 @@ const Footer = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
-                <Image 
-                  src="/icon.svg" 
-                  alt="DF Logo" 
-                  width={40} 
-                  height={40} 
+                <Image
+                  src="/icon.svg"
+                  alt="DF Logo"
+                  width={40}
+                  height={40}
                   className="rounded-full"
                   priority
                 />
               </motion.div>
-              <span className="text-2xl font-bold text-white">Dark Forest</span>
+              <span className="text-2xl font-bold text-white">Dark Forest MUD</span>
             </Link>
             <p className="text-white/70 mb-6 max-w-md">
-              A decentralized MMO space conquest game built on EVM chains. Explore infinite procedurally 
+              A decentralized MMO space conquest game built on EVM chains. Explore infinite procedurally
               generated universe and expand your territory.
             </p>
             <div className="flex space-x-4">
@@ -53,7 +53,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          
+
           <div>
             <h4 className="text-primary font-bold mb-4">Game</h4>
             <ul className="space-y-2">
@@ -79,7 +79,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-primary font-bold mb-4">Community</h4>
             <ul className="space-y-2">
@@ -105,7 +105,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="text-primary font-bold mb-4">Support</h4>
             <ul className="space-y-2">
@@ -120,8 +120,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="https://support.darkforest.mud" 
+                <Link
+                  href="https://support.darkforest.mud"
                   className="bg-secondary text-white py-1 px-3 rounded-md hover:bg-secondary-light transition-colors inline-block"
                 >
                   Support Center
@@ -135,11 +135,11 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-center md:text-left">
             <p className="text-white/50 text-sm">
-              &copy; {currentYear} Dark Forest Mud. All rights reserved.
+              &copy; {currentYear} DFArchon. All rights reserved.
             </p>
           </div>
           <div className="flex space-x-6">

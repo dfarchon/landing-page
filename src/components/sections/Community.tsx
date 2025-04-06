@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type SupporterLogoProps = {
   name: string;
@@ -53,9 +54,9 @@ const Support = () => {
     <section className="py-24 relative" ref={sectionRef}>
       {/* Background accent */}
       <div className="absolute top-1/3 right-1/4 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl -z-10"></div>
-      
+
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -63,38 +64,76 @@ const Support = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 inline-block gradient-text">Support</h2>
           <p className="text-lg text-white/80 max-w-3xl mx-auto">
-            Join our community of explorers, share experiences and strategies, and explore the endless cosmos together.
+            This project is entirely funded by donations and grants. We are grateful for donations and donation commitments from all values-aligned organizations and individuals, which make our development and operations possible.
           </p>
         </motion.div>
 
         <div className="mb-20">
-          <h3 className="text-2xl font-bold text-center text-white mb-10">Supporters</h3>
+          <h3 className="text-2xl font-bold text-center text-white mb-10">Major Donors</h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             <SupporterLogo
               name="0xPARC"
               link="https://0xparc.org"
-              delay={1}
+              delay={0.5}
               logo={
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path d="M11.584 2.376a.75.75 0 01.832 0l9 6a.75.75 0 11-.832 1.248L12 3.901 3.416 9.624a.75.75 0 01-.832-1.248l9-6z" />
-                  <path fillRule="evenodd" d="M20.25 10.332v9.918H21a.75.75 0 010 1.5H3a.75.75 0 010-1.5h.75v-9.918a.75.75 0 01.634-.74A49.109 49.109 0 0112 9c2.59 0 5.134.202 7.616.592a.75.75 0 01.634.74zm-7.5 2.418a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75zm3-.75a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0v-6.75a.75.75 0 01.75-.75zM9 12.75a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75z" clipRule="evenodd" />
-                  <path d="M12 7.875a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" />
-                </svg>
+                <Image
+                  src="/0xparc.png"
+                  alt="0xPARC Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
               }
             />
             <SupporterLogo
               name="Optimism"
               link="https://optimism.io"
-              delay={2}
+              delay={0.5}
               logo={
-                <svg viewBox="0 0 28 28" fill="currentColor" className="w-full h-full">
-                  <path d="M14 0C6.268 0 0 6.268 0 14C0 21.732 6.268 28 14 28C21.732 28 28 21.732 28 14C28 6.268 21.732 0 14 0ZM9.282 20.756C7.786 20.756 6.564 19.534 6.564 18.038C6.564 16.542 7.786 15.32 9.282 15.32C10.778 15.32 12 16.542 12 18.038C12 19.534 10.778 20.756 9.282 20.756ZM16.304 13.294C14.87 13.294 13.706 12.13 13.706 10.698C13.706 9.264 14.87 8.1 16.304 8.1C17.738 8.1 18.9 9.264 18.9 10.698C18.9 12.13 17.738 13.294 16.304 13.294Z" />
-                </svg>
+                <Image
+                  src="/op.png"
+                  alt="Optimism Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
               }
             />
+
             <SupporterLogo
-              name="Gitcoin Donors"
-              link="https://gitcoin.co"
+              name="Mask Network"
+              link="https://mask.io"
+              delay={0.5}
+              logo={
+                <Image
+                  src="/mask.svg"
+                  alt="Mask Network Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
+
+              }
+            />
+
+            <SupporterLogo
+              name="AGLD DAO"
+              link="https://adventuregold.org"
+              delay={0.5}
+              logo={
+                <Image
+                  src="/AGLDDAO.png"
+                  alt="AGLD DAO Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
+              }
+            />
+
+            <SupporterLogo
+              name="Player donations"
+              link=""
               delay={3}
               logo={
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -103,26 +142,80 @@ const Support = () => {
                 </svg>
               }
             />
+
+
+          </div>
+        </div>
+
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold text-center text-white mb-10">Infra Supporters</h3>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+
             <SupporterLogo
-              name="Mask Network"
-              link="https://mask.io"
-              delay={4}
+              name="Base"
+              link="https://www.base.org/"
+              delay={0.5}
               logo={
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clipRule="evenodd" />
-                </svg>
+                <Image
+                  src="/base.png"
+                  alt="Base Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
               }
             />
+
             <SupporterLogo
-              name="AGLD DAO"
-              link="https://adventuregold.org"
-              delay={5}
+              name="MUD Engine"
+              link="https://mud.dev/"
+              delay={0.5}
               logo={
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path fillRule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A7.547 7.547 0 016.648 6.61a.75.75 0 00-1.152.082A9 9 0 1017.25 10.5a9.145 9.145 0 00-3.432-8.504c-.51-.383-.945.182-.55.583.589.596.986 1.272 1.19 2.038.676.259 1.346.563 2.006.908a.75.75 0 00.832-1.146 8.25 8.25 0 00-4.333-2.103z" clipRule="evenodd" />
-                </svg>
+                <Image
+                  src="/Mud.png"
+                  alt="Mud Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
               }
             />
+
+
+            <SupporterLogo
+              name="Redstone L2"
+              link="https://redstone.xyz/"
+              delay={0.5}
+              logo={
+                <Image
+                  src="/Redstone.png"
+                  alt="Redstone L2 Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
+
+              }
+            />
+
+            <SupporterLogo
+              name="AltLayer"
+              link="https://www.altlayer.io/"
+              delay={0.5}
+              logo={
+                <Image
+                  src="/altlayer.png"
+                  alt="AltLayer Logo"
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-contain"
+                />
+              }
+            />
+
+
+
+
           </div>
         </div>
 

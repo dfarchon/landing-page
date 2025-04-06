@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 const structuredData: WithContext<WebSite> = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Dark Forest Mud",
+  name: "Dark Forest MUD",
   headline: "Dark Forest MUD — Prototype of Onchain Reality Universe",
   description: "A space-themed decentralized RTS built on EVM with zkSNARKs — the prototype of onchain reality universe.",
 

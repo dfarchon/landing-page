@@ -66,7 +66,7 @@ const Navbar = () => {
           >
             Overview
           </Link>
-          <Link
+          {/* <Link
             href="/"
             className="text-white/80 hover:text-primary transition-colors"
             onClick={(e) => {
@@ -75,7 +75,7 @@ const Navbar = () => {
             }}
           >
             Get Started
-          </Link>
+          </Link> */}
           <Link
             href="/"
             className="text-white/80 hover:text-primary transition-colors"
@@ -106,14 +106,14 @@ const Navbar = () => {
           >
             Support
           </Link>
-          <Link href="https://dfares.notion.site/DFArchon-One-Pager-TBD-1a7a4dc234338049903fc2568e5ec4fc" className="text-white/80 hover:text-primary transition-colors">
-            GuildBook
-          </Link>
+
           <Link
-            href="https://dfares.notion.site/DFArchon-One-Pager-TBD-1a7a4dc234338049903fc2568e5ec4fc"
+            href="https://dfares.notion.site/Document-Vault-DFArchon-1a6a4dc23433808093e5e88ca7fa97bd"
             className="bg-secondary hover:bg-secondary-light text-white py-2 px-4 rounded-lg transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Tutorial
+            Docs Vault
           </Link>
         </nav>
 
