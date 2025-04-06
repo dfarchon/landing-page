@@ -6,13 +6,13 @@ import Hero from '@/components/sections/Hero';
 import GameOverview from '@/components/sections/GameOverview';
 import Roadmap from '@/components/sections/Roadmap';
 import Support from '@/components/sections/Community';
-import FAQ from '@/components/sections/FAQ';
+// import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/layout/Footer';
-// import GetStarted from '@/components/sections/GetStarted';
+import GetStarted from '@/components/sections/GetStarted';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
-  const sections = useMemo(() => ['hero', 'overview', 'roadmap', 'faq', 'support', 'footer'], []);
+  const sections = useMemo(() => ['hero', 'overview', 'roadmap', 'support', 'footer'], []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,7 +45,7 @@ export default function Home() {
   const handleDotClick = (index: number) => {
     const targetSection = document.getElementById(sections[index]);
     if (targetSection) {
-      targetSection.scrollIntoView({ behavior: 'smooth' });
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setActiveSection(index);
     }
   };
@@ -75,19 +75,19 @@ export default function Home() {
       <div id="hero" className="snap-start h-screen">
         <Hero />
       </div>
-      <div id="overview" className="snap-start min-h-[75vh] section-transition">
+      <div id="overview" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
         <GameOverview />
       </div>
-      {/* <div id="getstarted" className="snap-start min-h-screen section-transition">
+      <div id="getstarted" className="snap-start min-h-screen section-transition scroll-mt-16">
         <GetStarted />
-      </div> */}
-      <div id="roadmap" className="snap-start min-h-[75vh] section-transition">
+      </div>
+      <div id="roadmap" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
         <Roadmap />
       </div>
-      <div id="faq" className="snap-start min-h-[75vh] section-transition">
+      {/* <div id="faq" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
         <FAQ />
-      </div>
-      <div id="support" className="snap-start min-h-[75vh] section-transition">
+      </div> */}
+      <div id="support" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
         <Support />
       </div>
 

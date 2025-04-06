@@ -81,7 +81,7 @@ const Navbar = () => {
           >
             Overview
           </Link>
-          {/* <Link
+          <Link
             href="/"
             className="text-white/80 hover:text-primary transition-colors"
             onClick={(e) => {
@@ -90,7 +90,7 @@ const Navbar = () => {
             }}
           >
             Get Started
-          </Link> */}
+          </Link>
           <Link
             href="/"
             className="text-white/80 hover:text-primary transition-colors"
@@ -101,7 +101,7 @@ const Navbar = () => {
           >
             Roadmap
           </Link>
-          <Link
+          {/* <Link
             href="/"
             className="text-white/80 hover:text-primary transition-colors"
             onClick={(e) => {
@@ -110,7 +110,7 @@ const Navbar = () => {
             }}
           >
             FAQ
-          </Link>
+          </Link> */}
           <Link
             href="/"
             className="text-white/80 hover:text-primary transition-colors"

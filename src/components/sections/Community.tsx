@@ -37,11 +37,11 @@ const Support = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   return (
-    <section className="min-h-screen py-2 pb-2 relative flex items-center" ref={sectionRef}>
+    <section className="min-h-screen pt-3 pb-3 relative flex items-center" ref={sectionRef}>
       {/* Background accent */}
       <div className="absolute top-1/3 right-1/4 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl -z-10"></div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 mt-20">
         <motion.div
           className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
@@ -52,6 +52,21 @@ const Support = () => {
           <p className="text-lg text-white/80 max-w-3xl mx-auto">
             This project is entirely funded by donations and grants. We are grateful for donations and donation commitments from all values-aligned organizations and individuals, which make our development and operations possible.
           </p>
+
+          <p className="text-lg text-white/80 max-w-3xl mx-auto mt-4">
+            If you would like to support our activities, please contact <a href="https://t.me/cherryblue1024" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">@cherryblue1024</a>
+          </p>
+
+          <div className="mt-8 flex justify-center">
+            <a
+              href="https://t.me/cherryblue1024"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-secondary hover:bg-secondary-light text-white py-4 px-8 rounded-lg font-medium text-lg transition-all shadow-lg shadow-secondary/20 inline-flex items-center"
+            >
+              Reach out to cherryblue
+            </a>
+          </div>
         </motion.div>
 
         <div className="mb-8">

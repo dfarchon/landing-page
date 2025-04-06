@@ -3,12 +3,12 @@
 :root {
   --background: #0a0a0a;
   --foreground: #f5f5f7;
-  --primary: #f4abba;
-  --primary-light: #ffd1dc;
-  --secondary: #ea596e;
-  --secondary-light: #f4a2ab;
-  --accent: #be1931;
-  --accent-light: #91f484;
+  --primary: #f4abba; /* Light pink */
+  --primary-light: #ffd1dc; /* Lighter pink */
+  --secondary: #ff8fab; /* Coral pink, replacing the original red */
+  --secondary-light: #ffb3c6; /* Light coral pink */
+  --accent: #ff5d8f; /* Deep pink, replacing the original dark red */
+  --accent-light: #ff9eb6; /* Light pink, replacing the original green */
   --dark-blue: #111111;
   --card-bg: rgba(20, 20, 20, 0.8);
 }
