@@ -76,23 +76,23 @@ export default function Home() {
       <div id="hero" className="snap-start h-screen">
         <Hero />
       </div>
-      <div id="overview" className="snap-start min-h-screen section-transition">
+      <div id="overview" className="snap-start min-h-[75vh] section-transition">
         <GameOverview />
       </div>
       {/* <div id="getstarted" className="snap-start min-h-screen section-transition">
         <GetStarted />
       </div> */}
-      <div id="roadmap" className="snap-start min-h-screen section-transition">
+      <div id="roadmap" className="snap-start min-h-[75vh] section-transition">
         <Roadmap />
       </div>
-      <div id="faq" className="snap-start min-h-screen section-transition">
+      <div id="faq" className="snap-start min-h-[75vh] section-transition">
         <FAQ />
       </div>
-      <div id="support" className="snap-start min-h-screen section-transition">
+      <div id="support" className="snap-start min-h-[75vh] section-transition">
         <Support />
       </div>
 
-      <div id="footer" className="min-h-screen flex flex-col justify-end">
+      <div id="footer" className="min-h-[50vh] flex flex-col justify-end">
         <Footer />
       </div>
     </main>

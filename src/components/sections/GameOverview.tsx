@@ -38,19 +38,19 @@ const GameOverview = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   return (
-    <section id="overview" className="py-24 relative">
+    <section className="min-h-screen py-8 relative flex items-center">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
       
       <div className="container mx-auto px-4" ref={sectionRef}>
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 inline-block gradient-text">What Is Dark Forest?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block gradient-text">What Is Dark Forest?</h2>
           <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto">
             Dark Forest is a decentralized MMO space conquest game running on Ethereum and Gnosis Chain. 
             Starting from your home planet, explore an infinite procedurally generated universe and expand 
@@ -58,7 +58,7 @@ const GameOverview = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <FeatureCard
             title="Fog of War via zkSNARKs"
             description="The universe is shrouded in a fog of war, hiding information about other players. Zero-knowledge proofs verify moves without revealing your location."

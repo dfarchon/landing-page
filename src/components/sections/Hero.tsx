@@ -3,6 +3,13 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Add a global type declaration for our test function
+declare global {
+  interface Window {
+    setCountdownTest: (seconds: number) => void;
+  }
+}
+
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isAtTop, setIsAtTop] = useState(true);
@@ -13,22 +20,51 @@ const Hero = () => {
     minutes: 0,
     seconds: 0
   });
+  const [countdownEnded, setCountdownEnded] = useState(false);
+  const [timeElapsed, setTimeElapsed] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
   const videoRef = useRef<HTMLVideoElement>(null);
+  const targetDateRef = useRef<Date>(new Date('2025-04-13T13:00:00Z')); // Store target date in a ref
 
   // Countdown timer
   useEffect(() => {
-    const targetDate = new Date('2025-04-13T13:00:00Z'); // April 13th, 2024 at 1 PM UTC
+    // For testing: create a function to set the countdown to a specific time
+    window.setCountdownTest = (seconds: number) => {
+      console.log(`Setting countdown to ${seconds} seconds remaining...`);
+      targetDateRef.current = new Date(new Date().getTime() + seconds * 1000);
+      console.log(`Countdown will end in ${seconds} seconds.`);
+    };
 
     const updateCountdown = () => {
       const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
+      const difference = targetDateRef.current.getTime() - now.getTime();
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      if (difference > 0) {
+        // Still counting down
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-      setCountdown({ days, hours, minutes, seconds });
+        setCountdown({ days, hours, minutes, seconds });
+        setCountdownEnded(false);
+      } else {
+        // Countdown has ended, switch to counting up
+        setCountdownEnded(true);
+        const elapsedDifference = Math.abs(difference);
+        
+        const days = Math.floor(elapsedDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((elapsedDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((elapsedDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((elapsedDifference % (1000 * 60)) / 1000);
+
+        setTimeElapsed({ days, hours, minutes, seconds });
+        setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
     };
 
     // Initial update
@@ -38,7 +74,13 @@ const Hero = () => {
     const timer = setInterval(updateCountdown, 1000);
 
     // Cleanup
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      // Also remove the test function when component unmounts
+      if (typeof window !== 'undefined') {
+        window.setCountdownTest = undefined as any;
+      }
+    };
   }, []);
 
   // Handle mouse movement for parallax effect
@@ -67,13 +109,22 @@ const Hero = () => {
   // Handle scroll for showing/hiding scroll indicator
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
+    
+    // Initial state based on scroll position
+    if (window.scrollY > 0) {
+      setIsAtTop(false);
+    }
+    
+    let hasScrolled = false;
+    
     const handleScroll = () => {
       try {
-        if (window.scrollY < 50) {
-          setIsAtTop(true);
-        } else {
+        // If we've already scrolled once, never show the indicator again
+        if (hasScrolled) return;
+        
+        if (window.scrollY > 0) {
           setIsAtTop(false);
+          hasScrolled = true; // Remember that user has scrolled
         }
       } catch (error) {
         console.error("Scroll handler error:", error);
@@ -95,7 +146,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12">
       {/* Video background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {!videoError ? (
@@ -153,9 +204,11 @@ const Hero = () => {
           </h2>
 
           <div className="text-center mb-8">
-            <h3 className="text-xl font-bold mb-4 text-white/90 drop-shadow-lg">New Round Countdown</h3>
+            <h3 className="text-xl font-bold mb-4 text-white/90 drop-shadow-lg">
+              {countdownEnded ? 'Game Started' : 'New Round Countdown'}
+            </h3>
             <motion.div
-              key={countdown.seconds}
+              key={countdownEnded ? timeElapsed.seconds : countdown.seconds}
               initial={{ scale: 1 }}
               animate={{
                 scale: [1, 1.05, 1],
@@ -168,19 +221,35 @@ const Hero = () => {
               className="flex justify-center gap-6 text-white"
             >
               <div className="text-center">
-                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{String(countdown.days).padStart(2, '0')}</div>
+                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                  {countdownEnded 
+                    ? String(timeElapsed.days).padStart(2, '0') 
+                    : String(countdown.days).padStart(2, '0')}
+                </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Days</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{String(countdown.hours).padStart(2, '0')}</div>
+                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                  {countdownEnded 
+                    ? String(timeElapsed.hours).padStart(2, '0') 
+                    : String(countdown.hours).padStart(2, '0')}
+                </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Hours</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{String(countdown.minutes).padStart(2, '0')}</div>
+                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                  {countdownEnded 
+                    ? String(timeElapsed.minutes).padStart(2, '0') 
+                    : String(countdown.minutes).padStart(2, '0')}
+                </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Minutes</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">{String(countdown.seconds).padStart(2, '0')}</div>
+                <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                  {countdownEnded 
+                    ? String(timeElapsed.seconds).padStart(2, '0') 
+                    : String(countdown.seconds).padStart(2, '0')}
+                </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Seconds</div>
               </div>
             </motion.div>
@@ -192,15 +261,22 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto"
             >
-
-
               <div
                 className="bg-primary hover:bg-primary-light text-black py-6 px-16 rounded-2xl font-bold text-2xl md:text-3xl transition-all shadow-xl shadow-primary/30 inline-block w-full sm:w-auto text-center min-w-[280px] cursor-pointer"
                 onClick={() => {
-                  window.open('https://twitter.com/intent/follow?screen_name=darkforest_mud', '_blank');
+                  if (countdownEnded) {
+                    window.open('https://base.dfmud.xyz', '_blank');
+                  } else {
+                    window.open('https://twitter.com/intent/follow?screen_name=darkforest_mud', '_blank');
+                  }
                 }}
               >
-                Follow us on X
+                {countdownEnded ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <span>Start Game</span>
+                    <img src="/base.png" alt="Base" width={24} height={24} />
+                  </div>
+                ) : 'Follow us on X'}
               </div>
             </motion.div>
           </div>

@@ -142,14 +142,6 @@ const Footer = () => {
               &copy; {currentYear} DFArchon. All rights reserved.
             </p>
           </div>
-          <div className="flex space-x-6">
-            <Link href="/terms" className="text-white/50 hover:text-primary text-sm transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="/privacy" className="text-white/50 hover:text-primary text-sm transition-colors">
-              Privacy Policy
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

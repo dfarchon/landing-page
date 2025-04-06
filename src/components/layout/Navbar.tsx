@@ -5,7 +5,11 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const Navbar = () => {
+interface NavbarProps {
+  scrollToTop?: () => void;
+}
+
+const Navbar = ({ scrollToTop }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -27,16 +31,25 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // 封装回到顶部功能
+  const handleBackToTop = () => {
+    // 直接重定向到网站首页
+    window.location.href = 'https://dfmud.xyz';
+  };
+
   return (
     <motion.header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-dark-blue/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${isScrolled ? 'bg-dark-blue/90 shadow-lg' : 'bg-dark-blue/20'
         }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-2">
+      <div className="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+        <Link href="#" className="flex items-center space-x-2" onClick={(e) => {
+          e.preventDefault();
+          handleBackToTop();
+        }}>
           <motion.div
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -50,7 +63,9 @@ const Navbar = () => {
               priority
             />
           </motion.div>
-          <span className="text-xl font-bold text-white">DARK FOREST MUD</span>
+          <span 
+            className="text-xl font-bold text-white cursor-pointer"
+          >DARK FOREST MUD</span>
         </Link>
 
         {/* Desktop Navigation */}

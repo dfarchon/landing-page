@@ -97,18 +97,18 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-24 relative" ref={sectionRef}>
+    <section className="min-h-screen py-8 relative flex items-center" ref={sectionRef}>
       {/* Background accent */}
       <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl -z-10"></div>
       
       <div className="container mx-auto px-4">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 inline-block gradient-text">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block gradient-text">Frequently Asked Questions</h2>
           <p className="text-lg text-white/80 max-w-3xl mx-auto">
             Learn more about Dark Forest before exploring the endless universe
           </p>
