@@ -11,6 +11,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      console.log('handleScroll');
       if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
@@ -49,19 +50,61 @@ const Navbar = () => {
               priority
             />
           </motion.div>
-          <span className="text-xl font-bold text-white">Dark Forest Mud</span>
+          <span className="text-xl font-bold text-white">DARK FOREST MUD</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="#overview" className="text-white/80 hover:text-primary transition-colors">
-            Game Overview
+          <Link
+            href="/"
+            className="text-white/80 hover:text-primary transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              // Scroll to overview section without changing URL
+              document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Overview
           </Link>
-          <Link href="#roadmap" className="text-white/80 hover:text-primary transition-colors">
+          <Link
+            href="/"
+            className="text-white/80 hover:text-primary transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('getstarted')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Get Started
+          </Link>
+          <Link
+            href="/"
+            className="text-white/80 hover:text-primary transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Roadmap
           </Link>
-          <Link href="#faq" className="text-white/80 hover:text-primary transition-colors">
+          <Link
+            href="/"
+            className="text-white/80 hover:text-primary transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             FAQ
+          </Link>
+          <Link
+            href="/"
+            className="text-white/80 hover:text-primary transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Support
           </Link>
           <Link href="https://dfares.notion.site/DFArchon-One-Pager-TBD-1a7a4dc234338049903fc2568e5ec4fc" className="text-white/80 hover:text-primary transition-colors">
             GuildBook
@@ -122,23 +165,35 @@ const Navbar = () => {
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <Link
-              href="#overview"
+              href="/"
               className="text-white py-2 px-4 rounded hover:bg-primary/20"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('overview')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMobileMenuOpen(false);
+              }}
             >
               Game Overview
             </Link>
             <Link
-              href="#roadmap"
+              href="/"
               className="text-white py-2 px-4 rounded hover:bg-primary/20"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMobileMenuOpen(false);
+              }}
             >
               Roadmap
             </Link>
             <Link
-              href="#faq"
+              href="/"
               className="text-white py-2 px-4 rounded hover:bg-primary/20"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMobileMenuOpen(false);
+              }}
             >
               FAQ
             </Link>
@@ -147,14 +202,22 @@ const Navbar = () => {
               className="text-white py-2 px-4 rounded hover:bg-primary/20"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMobileMenuOpen(false);
+              }}
             >
               GuildBook
             </Link>
             <Link
               href="https://dfares.notion.site/DFArchon-One-Pager-TBD-1a7a4dc234338049903fc2568e5ec4fc"
               className="bg-secondary text-white py-2 px-4 rounded-lg hover:bg-secondary-light"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMobileMenuOpen(false);
+              }}
             >
               Tutorial
             </Link>

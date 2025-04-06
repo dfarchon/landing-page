@@ -12,52 +12,62 @@ import GetStarted from '@/components/sections/GetStarted';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
-  const sections = ['hero', 'overview', 'getstarted', 'roadmap', 'faq', 'support'];
+  const sections = ['hero', 'overview', 'getstarted', 'roadmap', 'faq', 'support', 'footer'];
+
 
   useEffect(() => {
-    // 保护性检查，确保代码只在浏览器环境中运行
-    if (typeof window === 'undefined') return;
-    
-    const handleScroll = () => {
-      try {
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-        
-        const newActiveSection = Math.floor(scrollPosition / windowHeight);
-        if (newActiveSection !== activeSection && newActiveSection < sections.length) {
-          setActiveSection(newActiveSection);
-        }
-      } catch (error) {
-        console.error("Scroll handler error:", error);
-      }
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = sections.findIndex(section => section === entry.target.id);
+            if (sectionIndex !== -1) {
+              setActiveSection(sectionIndex);
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-    window.addEventListener('scroll', handleScroll);
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) observer.observe(element);
+    });
+
     return () => {
-      // 保护性检查，确保清理函数在组件卸载时正确执行
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('scroll', handleScroll);
-      }
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) observer.unobserve(element);
+      });
     };
-  }, [activeSection, sections.length]);
+  }, [sections]);
+
+  const handleDotClick = (index: number) => {
+    const targetSection = document.getElementById(sections[index]);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(index);
+    }
+  };
 
   return (
-    <main className="snap-y snap-mandatory h-screen overflow-y-auto relative">
+    <main className="h-screen overflow-y-auto relative scroll-smooth">
       <Navbar />
-      
-      {/* 侧边页面指示器 */}
+
+      {/* Side page indicators */}
       <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 hidden md:block">
         <div className="flex flex-col gap-4">
           {sections.map((section, index) => (
-            <a 
+            <button
               key={section}
-              href={`#${section}`}
-              className={`w-3 h-3 rounded-full border-2 border-primary transition-all ${
-                activeSection === index 
-                  ? 'bg-primary scale-125' 
-                  : 'bg-transparent hover:scale-110'
-              }`}
-              aria-label={`跳到${section}部分`}
+              type="button"
+              onClick={() => handleDotClick(index)}
+              className={`w-3 h-3 rounded-full border-2 border-primary transition-all duration-300 ${activeSection === index
+                ? 'bg-primary scale-125'
+                : 'bg-transparent hover:bg-primary/50'
+                }`}
+              aria-label={`Jump to ${section} section`}
             />
           ))}
         </div>
@@ -81,7 +91,10 @@ export default function Home() {
       <div id="support" className="snap-start min-h-screen section-transition">
         <Support />
       </div>
-      <Footer />
+
+      <div id="footer" className="min-h-screen flex flex-col justify-end">
+        <Footer />
+      </div>
     </main>
   );
 }
