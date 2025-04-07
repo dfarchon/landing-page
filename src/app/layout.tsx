@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Dark Forest MUD",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Dark Forest MUD",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dark Forest MUD — Prototype of Onchain Reality Universe",
     description: "A space-themed decentralized RTS built on EVM with zkSNARKs — the prototype of onchain reality universe.",
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -64,7 +64,7 @@ const structuredData: WithContext<WebSite> = {
   url: siteUrl,
   image: {
     "@type": "ImageObject",
-    url: `${siteUrl}/og-image.svg`,
+    url: `${siteUrl}/og-image.png`,
     width: "1200",
     height: "630",
     caption: "Dark Forest Game"
@@ -111,7 +111,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        
+
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-ERTZ7ZEZTE" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
