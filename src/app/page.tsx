@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
 import GameOverview from '@/components/sections/GameOverview';
-import Roadmap from '@/components/sections/Roadmap';
+// import Roadmap from '@/components/sections/Roadmap';
 import Support from '@/components/sections/Community';
 // import FAQ from '@/components/sections/FAQ';
 import Footer from '@/components/layout/Footer';
@@ -12,7 +12,7 @@ import GetStarted from '@/components/sections/GetStarted';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
-  const sections = useMemo(() => ['hero', 'overview', 'roadmap', 'support', 'footer'], []);
+  const sections = useMemo(() => ['hero', 'overview', 'roadmap', 'faq', 'support', 'footer'], []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -81,10 +81,10 @@ export default function Home() {
       <div id="getstarted" className="snap-start min-h-screen section-transition scroll-mt-16">
         <GetStarted />
       </div>
-      <div id="roadmap" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
+      {/* <div id="roadmap" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
         <Roadmap />
       </div>
-      {/* <div id="faq" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
+      <div id="faq" className="snap-start min-h-[75vh] section-transition scroll-mt-16">
         <FAQ />
       </div> */}
       <div id="support" className="snap-start min-h-[75vh] section-transition scroll-mt-16">

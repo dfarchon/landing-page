@@ -32,9 +32,8 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: FAQItemProps) => 
       >
         <h3 className="text-lg md:text-xl font-medium text-white">{question}</h3>
         <svg
-          className={`w-6 h-6 text-secondary transition-transform duration-300 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
+          className={`w-6 h-6 text-secondary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
+            }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -62,7 +61,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }: FAQItemProps) => 
 const FAQ = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
-  
+
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqData = [
@@ -100,9 +99,9 @@ const FAQ = () => {
     <section className="min-h-screen py-8 relative flex items-center" ref={sectionRef}>
       {/* Background accent */}
       <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-primary/10 rounded-full blur-3xl -z-10"></div>
-      
+
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-8"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -128,8 +127,11 @@ const FAQ = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-white/70">
-            More questions? Visit our <a href="#" className="text-accent-light hover:text-accent underline">complete documentation</a> or <a href="#" className="text-accent-light hover:text-accent underline">contact support team</a>
+          <p className="text-white/70 italic">
+            More questions? Visit our <a href="https://dfares.notion.site/Dark-Forest-MUD-v0-1-3-player-guide-1cea4dc2343380feb449c3b621fd5640" className="text-accent-light hover:text-accent underline">
+              complete docs
+            </a> or join <a href="https://discord.gg/kH725yZPVQ" className="text-accent-light hover:text-accent underline">
+              community discord</a> to get answers
           </p>
         </div>
       </div>

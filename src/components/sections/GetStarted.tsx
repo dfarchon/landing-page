@@ -102,7 +102,7 @@ const GetStarted = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <Link
-            href="#"
+            href="https://dfares.notion.site/Dark-Forest-MUD-v0-1-3-player-guide-1cea4dc2343380feb449c3b621fd5640"
             className="bg-secondary hover:bg-secondary-light text-white py-3 px-8 rounded-lg font-medium transition-all shadow-lg shadow-secondary/20 inline-flex items-center"
           >
             Read Full Tutorial
