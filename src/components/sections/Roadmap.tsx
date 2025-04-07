@@ -10,41 +10,61 @@ const Roadmap = () => {
 
   const roadmapData = [
     {
-      version: 'v0.1-v0.5',
+      version: 'DF v0.3-v0.5',
       date: '2020',
       title: 'Foundation',
-      description: 'Initial development and testing of core mechanics. Established the foundation for future versions.'
+      team: 'Dark Forest Official Team',
+      description: 'A cutting-edge experimental application combining zkSNARKs with blockchain, where all in-game actions are fully onchain. The game also supports a plugin system, allowing for development based on open APIs on the frontend. Established the foundation for future versions.'
     },
     {
-      version: 'v0.6',
-      date: '2021-2022',
-      title: 'Expanded Rounds',
-      description: 'Enhanced gameplay with expanded rounds and improved user experience.'
+      version: 'DF v0.6.1 - v0.6.5',
+      date: '2021-2022 Q1',
+      title: 'The Seekers\' Journey',
+      team: 'Dark Forest Official Team',
+      description: 'Dark Forest official team introduced different types of space types, planet types, and artifacts with various functions, greatly enriching the game\'s content.Each round also features new game mechanics and updates, while third - party developer tools are continuously being optimized.In v0.6.5, the game was migrated to the Diamonds standard(ERC2535).'
     },
     {
-      version: 'Ares v0.1.1-v0.1.2',
+      version: 'DF-ARES v0.1.1-v0.1.2',
       date: '2023',
       title: 'New Artifacts & Gameplay',
+      team: 'DFArchon Team',
       description: 'Introduced artifacts like Fire/Ice Links, Stellar Shield, and the Pink Bomb. Enhanced ZK circuit and implemented artifact purchasing system with cooldown mechanics.'
     },
     {
-      version: 'Ares v0.1.3-v0.1.4',
-      date: 'Q2-Q3 2024',
+      version: 'DF-ARES v0.1.3-v0.1.4',
+      date: '2024 Q1 - Q2',
       title: 'Economy & Collaboration',
+      team: 'DFArchon Team',
       description: 'Introduced the Kardashev Artifact for resource transfers, implemented economic features including planet purchases, and developed the Union System for player alliances.'
     },
     {
-      version: 'MUD v0.1.1',
-      date: 'Q4 2024 (Oct)',
-      title: 'Engine Migration',
-      description: 'Migrated to the MUD engine with dynamic tick rate system and optimized artifact integration.'
+      version: 'DF-MUD v0.1.1',
+      date: '2024 Q3',
+      title: 'Engine Migration & Tick Rate System',
+      team: 'DFArchon Team',
+      description: 'The core gameplay, including space types, planet types, and silver mining, has been migrated to the MUD engine, with the introduction of a dynamic Tick Rate System for enhanced flexibility and strategy.'
     },
     {
-      version: 'MUD v0.1.2',
-      date: 'Q4 2024 (Nov)',
-      title: 'Guilds & AI',
-      description: 'Introduced Guild System, account delegation, and Sophon AI integration.'
+      version: 'DF-MUD v0.1.2',
+      date: '2024 Q4',
+      title: 'Guilds & Delegation & Artifacts',
+      team: 'DFArchon Team',
+      description: 'Introduced a guild system with account delegation functionality, and developed modules for rapid development and integration of artifacts, enabling key artifacts.'
     },
+    {
+      version: 'DF-MUD v0.1.3',
+      date: '2025 Q1',
+      title: 'Not yet released',
+      team: 'DFArchon Team',
+      description: 'Not yet released'
+    },
+    {
+      version: 'DF-MUD Ultimate',
+      date: 'The Final Frontier',
+      title: 'The Infinite Universe',
+      team: 'Community Driven',
+      description: 'Introducing the Onchain Reality Universe (ORU) - a fully decentralized, infinitely expanding digital world. People can build their own civilizations, form alliances, engage in interstellar politics, and shape the future of this ever-evolving universe.'
+    }
   ];
 
   return (
@@ -99,6 +119,11 @@ const Roadmap = () => {
                     <span className="text-white/60 text-xs">{item.date}</span>
                   </div>
                   <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
+                  <div className={`flex items-center gap-1 mb-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary">
+                      {item.team}
+                    </span>
+                  </div>
                   <p className="text-white/70 text-sm">{item.description}</p>
                 </div>
               </div>
