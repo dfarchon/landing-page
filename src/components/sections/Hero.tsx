@@ -57,7 +57,7 @@ const Hero = () => {
         // Countdown has ended, switch to counting up
         setCountdownEnded(true);
         const elapsedDifference = Math.abs(difference);
-        
+
         const days = Math.floor(elapsedDifference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((elapsedDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((elapsedDifference % (1000 * 60 * 60)) / (1000 * 60));
@@ -110,19 +110,19 @@ const Hero = () => {
   // Handle scroll for showing/hiding scroll indicator
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    
+
     // Initial state based on scroll position
     if (window.scrollY > 0) {
       setIsAtTop(false);
     }
-    
+
     let hasScrolled = false;
-    
+
     const handleScroll = () => {
       try {
         // If we've already scrolled once, never show the indicator again
         if (hasScrolled) return;
-        
+
         if (window.scrollY > 0) {
           setIsAtTop(false);
           hasScrolled = true; // Remember that user has scrolled
@@ -223,32 +223,32 @@ const Hero = () => {
             >
               <div className="text-center">
                 <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                  {countdownEnded 
-                    ? String(timeElapsed.days).padStart(2, '0') 
+                  {countdownEnded
+                    ? String(timeElapsed.days).padStart(2, '0')
                     : String(countdown.days).padStart(2, '0')}
                 </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Days</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                  {countdownEnded 
-                    ? String(timeElapsed.hours).padStart(2, '0') 
+                  {countdownEnded
+                    ? String(timeElapsed.hours).padStart(2, '0')
                     : String(countdown.hours).padStart(2, '0')}
                 </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Hours</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                  {countdownEnded 
-                    ? String(timeElapsed.minutes).padStart(2, '0') 
+                  {countdownEnded
+                    ? String(timeElapsed.minutes).padStart(2, '0')
                     : String(countdown.minutes).padStart(2, '0')}
                 </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Minutes</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                  {countdownEnded 
-                    ? String(timeElapsed.seconds).padStart(2, '0') 
+                  {countdownEnded
+                    ? String(timeElapsed.seconds).padStart(2, '0')
                     : String(countdown.seconds).padStart(2, '0')}
                 </div>
                 <div className="text-sm opacity-80 drop-shadow-lg">Seconds</div>
@@ -266,7 +266,7 @@ const Hero = () => {
                 className="bg-primary hover:bg-primary-light text-black py-6 px-16 rounded-2xl font-bold text-2xl md:text-3xl transition-all shadow-xl shadow-primary/30 inline-block w-full sm:w-auto text-center min-w-[280px] cursor-pointer"
                 onClick={() => {
                   if (countdownEnded) {
-                    window.open('https://base.dfmud.xyz', '_blank');
+                    window.open('https://r3.dfmud.xyz', '_blank');
                   } else {
                     window.open('https://twitter.com/intent/follow?screen_name=darkforest_mud', '_blank');
                   }
