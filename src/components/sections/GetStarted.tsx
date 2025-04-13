@@ -87,7 +87,7 @@ const GetStarted = () => {
         >
           <iframe
             className="absolute w-full h-full top-0 left-0"
-            src="https://www.youtube.com/embed/PTd-gDlQqvo"
+            src="https://www.youtube.com/embed/K6iIbhJ57oI"
             title="Dark Forest Tutorial"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
