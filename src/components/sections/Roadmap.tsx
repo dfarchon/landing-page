@@ -54,6 +54,13 @@ const Roadmap = () => {
     {
       version: 'DF-MUD v0.1.3',
       date: '2025 Q1',
+      title: 'Cross-Round Artifacts & AI Agent',
+      team: 'DFArchon Team',
+      description: 'The artifacts support cross-round feature, introduce AI agent to assist player decision-making, optimize onboarding process, add engaging background music.'
+    },
+    {
+      version: 'DF-MUD v0.1.4',
+      date: '2025 Q3',
       title: 'Not yet released',
       team: 'DFArchon Team',
       description: 'Not yet released'
