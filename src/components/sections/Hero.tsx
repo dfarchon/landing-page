@@ -29,7 +29,7 @@ const Hero = () => {
     seconds: 0
   });
   const videoRef = useRef<HTMLVideoElement>(null);
-  const targetDateRef = useRef<Date>(new Date('2025-04-13T13:00:00Z')); // Store target date in a ref
+  const targetDateRef = useRef<Date>(new Date("2025-07-04T13:00:00Z")); // Store target date in a ref
 
   // Countdown timer
   useEffect(() => {
@@ -266,7 +266,7 @@ const Hero = () => {
                 className="bg-primary hover:bg-primary-light text-black py-6 px-16 rounded-2xl font-bold text-2xl md:text-3xl transition-all shadow-xl shadow-primary/30 inline-block w-full sm:w-auto text-center min-w-[280px] cursor-pointer"
                 onClick={() => {
                   if (countdownEnded) {
-                    window.open('https://r3.dfmud.xyz', '_blank');
+                    window.open('https://r4.dfmud.xyz', '_blank');
                   } else {
                     window.open('https://twitter.com/intent/follow?screen_name=darkforest_mud', '_blank');
                   }
