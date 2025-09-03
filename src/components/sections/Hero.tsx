@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 // Add a global type declaration for our test function
 declare global {
@@ -28,6 +28,10 @@ const Hero = () => {
     minutes: 0,
     seconds: 0
   });
+
+  console.log(countdown);
+  console.log(timeElapsed);
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const targetDateRef = useRef<Date>(new Date("2025-07-04T13:00:00Z")); // Store target date in a ref
 
@@ -205,7 +209,6 @@ const Hero = () => {
           </h2>
 
 
-          <div className="text-center mb-8"><br /><br /></div>
           {/* <div className="text-center mb-8">
             <h3 className="text-xl font-bold mb-4 text-white/90 drop-shadow-lg">
               {countdownEnded ? 'Game Started' : 'New Round Countdown'}
@@ -257,6 +260,12 @@ const Hero = () => {
               </div>
             </motion.div>
           </div> */}
+
+          <div className="text-center mb-6">
+            <p className="text-2xl font-bold text-red-500">
+              Dark Forest MUD v0.1.5 is expected to be held on Optimism Mainnet in Q4 2025
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
             <motion.div
