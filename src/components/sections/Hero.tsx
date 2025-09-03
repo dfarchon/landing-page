@@ -204,7 +204,9 @@ const Hero = () => {
             A space-themed decentralized RTS game built on EVM with zkSNARKs  the prototype of onchain reality universe
           </h2>
 
-          <div className="text-center mb-8">
+
+          <div className="text-center mb-8"><br /><br /></div>
+          {/* <div className="text-center mb-8">
             <h3 className="text-xl font-bold mb-4 text-white/90 drop-shadow-lg">
               {countdownEnded ? 'Game Started' : 'New Round Countdown'}
             </h3>
@@ -254,7 +256,7 @@ const Hero = () => {
                 <div className="text-sm opacity-80 drop-shadow-lg">Seconds</div>
               </div>
             </motion.div>
-          </div>
+          </div> */}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
             <motion.div
@@ -266,16 +268,20 @@ const Hero = () => {
                 className="bg-primary hover:bg-primary-light text-black py-6 px-16 rounded-2xl font-bold text-2xl md:text-3xl transition-all shadow-xl shadow-primary/30 inline-block w-full sm:w-auto text-center min-w-[280px] cursor-pointer"
                 onClick={() => {
                   if (countdownEnded) {
-                    window.open('https://r4.dfmud.xyz', '_blank');
+                    window.open('https://r4-pyrope.dfmud.xyz', '_blank');
                   } else {
                     window.open('https://twitter.com/intent/follow?screen_name=darkforest_mud', '_blank');
                   }
                 }}
               >
                 {countdownEnded ? (
-                  <div className="flex items-center justify-center gap-2">
-                    <span>Start Game</span>
-                    <Image src="/base.png" alt="Base" width={24} height={24} />
+                  <div className="flex flex-col items-center justify-center">
+                    <span>Enter the Universe</span>
+                    <div className="text-sm mt-1">
+                      <span>dfmud v0.1.4</span>
+                      <span> on Testnet</span>
+                    </div>
+                    {/* <Image src="/base.png" alt="Base" width={24} height={24} /> */}
                   </div>
                 ) : 'Follow us on X'}
               </div>

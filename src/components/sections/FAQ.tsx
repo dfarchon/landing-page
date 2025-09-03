@@ -128,7 +128,7 @@ const FAQ = () => {
 
         <div className="text-center mt-12">
           <p className="text-white/70 italic">
-            More questions? Visit our <a href="https://dfares.notion.site/Dark-Forest-MUD-v0-1-3-player-guide-1cea4dc2343380feb449c3b621fd5640" className="text-accent-light hover:text-accent underline">
+            More questions? Visit our <a href="https://dfares.notion.site/Dark-Forest-MUD-v0-1-4-player-guide-226a4dc234338094b74ec0679039a4dd" className="text-accent-light hover:text-accent underline">
               complete docs
             </a> or join <a href="https://discord.gg/kH725yZPVQ" className="text-accent-light hover:text-accent underline">
               community discord</a> to get answers
