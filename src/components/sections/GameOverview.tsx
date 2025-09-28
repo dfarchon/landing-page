@@ -50,7 +50,7 @@ const GameOverview = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block gradient-text"> Dark Forest MUD Key Highlights </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block gradient-text"> Dark Forest Punk Key Highlights </h2>
 
 
         </motion.div>

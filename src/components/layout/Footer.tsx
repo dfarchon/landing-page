@@ -36,7 +36,7 @@ const Footer = () => {
                   priority
                 />
               </motion.div>
-              <span className="text-2xl font-bold text-white">Dark Forest MUD</span>
+              <span className="text-2xl font-bold text-white">Dark Forest Punk</span>
             </Link>
             <p className="text-white/70 mb-6 max-w-md">
               A decentralized MMO space conquest game built on EVM with zkSNARKs. Explore an infinite procedurally generated universe and expand your territory.
@@ -45,7 +45,7 @@ const Footer = () => {
 
             </p>
             <div className="flex space-x-4">
-              <Link href="https://x.com/darkforest_mud" className="text-white/60 hover:text-primary transition-colors">
+              <Link href="https://x.com/darkforest_punk" className="text-white/60 hover:text-primary transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-5 h-5">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
                 </svg>
@@ -106,7 +106,7 @@ const Footer = () => {
             <h4 className="text-primary font-bold mb-4">Community</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="https://x.com/darkforest_mud" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="https://x.com/darkforest_punk" className="text-white/70 hover:text-primary transition-colors">
                   Twitter
                 </Link>
               </li>
@@ -145,7 +145,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <Link href="https://docs.dfmud.xyz" className="text-white/70 hover:text-primary transition-colors">
+                <Link href="https://docs.dfpunk.xyz" className="text-white/70 hover:text-primary transition-colors">
                   Dev Docs
                 </Link>
               </li>

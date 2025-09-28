@@ -202,7 +202,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3">
-            Dark Forest MUD
+            Dark Forest Punk
           </h1>
           <h2 className="text-xl md:text-2xl text-white/90 mb-5 max-w-3xl mx-auto">
             A space-themed decentralized RTS game built on EVM with zkSNARKs  the prototype of onchain reality universe
@@ -263,7 +263,7 @@ const Hero = () => {
 
           <div className="text-center mb-6">
             <p className="text-2xl font-bold text-red-500">
-              Dark Forest MUD v0.1.5 is expected to be held on Optimism Mainnet in Q4 2025
+              Dark Forest Punk v0.1.1 is expected to be held on Optimism Mainnet in Q4 2025
             </p>
           </div>
 
@@ -279,7 +279,7 @@ const Hero = () => {
                   if (countdownEnded) {
                     window.open('https://r4-pyrope.dfmud.xyz', '_blank');
                   } else {
-                    window.open('https://twitter.com/intent/follow?screen_name=darkforest_mud', '_blank');
+                    window.open('https://twitter.com/intent/follow?screen_name=darkforest_punk', '_blank');
                   }
                 }}
               >

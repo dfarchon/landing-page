@@ -66,14 +66,14 @@ const Roadmap = () => {
       description: 'The new junk mechanic makes players add junk when first using a planet, limiting total ownership and keeping the universe balanced.'
     },
     {
-      version: 'DF-MUD v0.1.5',
+      version: 'DF-PUNK v0.1.1',
       date: '2025 Q4',
       title: 'Not yet released',
       team: 'DFArchon Team',
       description: 'Not yet released'
     },
     {
-      version: 'DF-MUD Ultimate',
+      version: 'DF-PUNK Ultimate',
       date: 'The Final Frontier',
       title: 'The Infinite Universe',
       team: 'Community Driven',

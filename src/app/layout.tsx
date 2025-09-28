@@ -5,7 +5,7 @@ import { WebSite, WithContext } from "schema-dts";
 import Script from "next/script";
 
 const isDevMode = process.env.NODE_ENV === 'development';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (isDevMode ? 'http://localhost:3000' : 'https://dfmud.xyz');
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (isDevMode ? 'http://localhost:3000' : 'https://dfpunk.xyz');
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   // set metadataBase url when we are not development mode
   // @see https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
   metadataBase: !isDevMode ? new URL(siteUrl) : undefined,
-  title: "Dark Forest MUD — Prototype of Onchain Reality Universe",
+  title: "Dark Forest Punk — Prototype of Onchain Reality Universe",
   description: "A space-themed decentralized RTS built on EVM with zkSNARKs — the prototype of onchain reality universe.",
   keywords: ["Dark Forest", "Ethereum", "zkSNARKs", "onchain reality", "Crypto Game", "Web3 Game", "Blockchain Game", "Strategy Game"],
   icons: {
@@ -30,16 +30,16 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   openGraph: {
-    title: "Dark Forest MUD — Prototype of Onchain Reality Universe",
+    title: "Dark Forest Punk — Prototype of Onchain Reality Universe",
     description: "A space-themed decentralized RTS built on EVM with zkSNARKs — the prototype of onchain reality universe.",
     url: siteUrl,
-    siteName: "Dark Forest MUD",
+    siteName: "Dark Forest Punk",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Dark Forest MUD",
+        alt: "Dark Forest Punk",
       },
     ],
     locale: "en_US",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dark Forest MUD — Prototype of Onchain Reality Universe",
+    title: "Dark Forest Punk — Prototype of Onchain Reality Universe",
     description: "A space-themed decentralized RTS built on EVM with zkSNARKs — the prototype of onchain reality universe.",
     images: ["/og-image.png"],
   },
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
 const structuredData: WithContext<WebSite> = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Dark Forest MUD",
-  headline: "Dark Forest MUD — Prototype of Onchain Reality Universe",
+  name: "Dark Forest Punk",
+  headline: "Dark Forest Punk — Prototype of Onchain Reality Universe",
   description: "A space-themed decentralized RTS built on EVM with zkSNARKs — the prototype of onchain reality universe.",
 
 
@@ -82,7 +82,7 @@ const structuredData: WithContext<WebSite> = {
       height: "512"
     },
     sameAs: [
-      "https://x.com/darkforest_mud",
+      "https://x.com/darkforest_punk",
       "https://x.com/dfarchon",
       "https://discord.gg/kH725yZPVQ",
       "https://github.com/dfarchon"
