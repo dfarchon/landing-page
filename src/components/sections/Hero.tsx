@@ -263,7 +263,7 @@ const Hero = () => {
 
           <div className="text-center mb-6">
             <p className="text-2xl font-bold text-red-500">
-              Dark Forest Punk v0.1.1 is expected to be held on Optimism Mainnet in Q4 2025
+              Dark Forest Punk v0.1.1 is expected to be held in Q4 2025
             </p>
           </div>
 
