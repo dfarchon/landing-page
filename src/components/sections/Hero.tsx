@@ -33,7 +33,8 @@ const Hero = () => {
   console.log(timeElapsed);
 
   const videoRef = useRef<HTMLVideoElement>(null);
-  const targetDateRef = useRef<Date>(new Date("2025-07-04T13:00:00Z")); // Store target date in a ref
+
+  const targetDateRef = useRef<Date>(new Date("2025-10-18T13:00:00Z")); // Store target date in a ref
 
   // Countdown timer
   useEffect(() => {
@@ -209,7 +210,7 @@ const Hero = () => {
           </h2>
 
 
-          {/* <div className="text-center mb-8">
+          <div className="text-center mb-8">
             <h3 className="text-xl font-bold mb-4 text-white/90 drop-shadow-lg">
               {countdownEnded ? 'Game Started' : 'New Round Countdown'}
             </h3>
@@ -259,11 +260,11 @@ const Hero = () => {
                 <div className="text-sm opacity-80 drop-shadow-lg">Seconds</div>
               </div>
             </motion.div>
-          </div> */}
+          </div>
 
           <div className="text-center mb-6">
-            <p className="text-2xl font-bold text-red-500">
-              Dark Forest Punk v0.1.1 is expected to be held in Q4 2025
+            <p className="text-4xl font-extrabold text-red-500 drop-shadow-[0_0_12px_rgb(255,0,0)] animate-pulse">
+              Optimism Mainnet
             </p>
           </div>
 
@@ -277,7 +278,7 @@ const Hero = () => {
                 className="bg-primary hover:bg-primary-light text-black py-6 px-16 rounded-2xl font-bold text-2xl md:text-3xl transition-all shadow-xl shadow-primary/30 inline-block w-full sm:w-auto text-center min-w-[280px] cursor-pointer"
                 onClick={() => {
                   if (countdownEnded) {
-                    window.open('https://r4-pyrope.dfmud.xyz', '_blank');
+                    window.open('https://r1.dfpunk.xyz', '_blank');
                   } else {
                     window.open('https://twitter.com/intent/follow?screen_name=darkforest_punk', '_blank');
                   }
@@ -287,8 +288,8 @@ const Hero = () => {
                   <div className="flex flex-col items-center justify-center">
                     <span>Enter the Universe</span>
                     <div className="text-sm mt-1">
-                      <span>dfmud v0.1.4</span>
-                      <span> on Testnet</span>
+                      <span>Dark Forest Punk R1</span>
+                      <span> on Optimism</span>
                     </div>
                     {/* <Image src="/base.png" alt="Base" width={24} height={24} /> */}
                   </div>
