@@ -68,9 +68,16 @@ const Roadmap = () => {
     {
       version: 'DF-PUNK v0.1.1',
       date: '2025 Q4',
+      title: 'New Materials',
+      team: 'DFArchon Team',
+      description: 'In this round, we introduce 11 materials based on the planets\' biome attributes.These materials will be used to build the technology tree in the future.'
+    },
+    {
+      version: 'DF-PUNK v0.1.2',
+      date: '2026 Q1',
       title: 'Not yet released',
       team: 'DFArchon Team',
-      description: 'Not yet released'
+      description: 'Not yet released',
     },
     {
       version: 'DF-PUNK Ultimate',
